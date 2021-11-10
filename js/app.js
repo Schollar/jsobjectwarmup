@@ -1,3 +1,23 @@
+function not_coastal(arry) {
+    var i = 0;
+    while (i < arry.length) {
+        if (!arry[i].is_coastal) {
+            console.log(`${arry[i].city_name} is NOT coastal`)
+        }
+        i++
+    }
+}
+
+function onearg(obby) {
+    if (obby.is_coastal) {
+        return true;
+    }
+}
+
+
+
+
+
 var city = {
     city_name: 'Saskatoon',
     population: 1200000,
@@ -5,7 +25,7 @@ var city = {
 
 }
 
-if (city.is_coastal === true) {
+if (city.is_coastal) {
     console.log(`${city.city_name} has a population of ${city.population}`);
 }
 
@@ -34,7 +54,7 @@ var cities = [{
 ];
 
 for (var i = 0; i < cities.length; i++) {
-    if (cities[i].is_coastal === true && cities[i].population > 1000000) {
+    if (cities[i].is_coastal && cities[i].population > 1000000) {
         console.log(`${cities[i].city_name} has a population of ${cities[i].population}`);
     }
 }
@@ -48,28 +68,15 @@ while (i < cities.length) {
 }
 
 
-function not_coastal(cities) {
-    i = 0;
-    while (i < cities.length) {
-        if (cities[i].is_coastal === false) {
-            console.log(cities[i].city_name)
-        }
-        i++
-    }
-}
+
 
 not_coastal(cities);
 
-function onearg(cities) {
-    if (cities.is_coastal === true) {
-        return true;
-    }
-}
-
-onearg(cities);
 
 
-var non_coastal_cities = cities.filter((cities) => cities.is_coastal === false);
+onearg(city);
+
+var non_coastal_cities = cities.filter((cities) => !cities.is_coastal);
 
 for (var i = 0; i < non_coastal_cities.length; i++) {
     console.log(`${non_coastal_cities[i].city_name} has a population of ${non_coastal_cities[i].population}`);
